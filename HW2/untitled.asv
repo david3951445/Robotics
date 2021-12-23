@@ -1,0 +1,30 @@
+clc; clear;
+syms d1 a2 d4
+% th = sym('th', [1, 6]);
+
+table = [d1	0   90  0
+         0  a2  0   0
+         0  0   -90 0
+         d4	0   90  0
+         0  0   -90 0
+         0  0   0   0];
+
+for i = 1 : 6
+    A(:, :, i) = getA(i, table(i, :));
+end
+
+T = eye(4);
+for i = 1 : 6
+    T = T*A(:, :, i);
+end
+T
+
+function A = getA(n, arr) % transformation matrix of joint n in D-H model
+d = arr(1); a = arr(2); al = arr(3)/180*pi;
+c = sym('c', n); s = sym('s', n);
+
+A = [c    -s*cos(al)    s*sin(al)     a*c
+     s    c*cos(al)     -c*sin(al)    a*s
+     0          sin(al)             cos(al)             d
+     0          0                   0                   1];  
+end
