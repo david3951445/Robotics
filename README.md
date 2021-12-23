@@ -9,7 +9,8 @@ code of Homework, Project, in Robotics
 - Course textbook
   - Programming, and Control, MIT Press, 1981 (MAIN)
   - Lorenzo Sciavicco and Bruno Siciliano, Modeling and Control of Robot Manipulators, McGraw-Hill, 2005
-## Briefly Description
+  - 
+## Briefly Description of Subfolder
 ### HW2
 
 ### HW4
