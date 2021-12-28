@@ -4,19 +4,19 @@ classdef RVM2
         % kinematic table
         %        d a    alpha   theta
         table = [0 120  -90     0
-            0 250  0       0
-            0 260  0       0
-            0 0    -90     0
-            0 0    90      0
-            0 0    0       0]
+                0 250  0       0
+                0 260  0       0
+                0 0    -90     0
+                0 0    90      0
+                0 0    0       0]
         
         % joint angles range
         range = [-150   150
-            -30    100
-            -120   0
-            -110   110
-            -180   180
-            -180   180]
+                -30    100
+                -120   0
+                -110   110
+                -180   180
+                -180   180]
     end
     
     properties
@@ -64,7 +64,7 @@ classdef RVM2
             end
         end
         
-        % inverse kinemic
+        % inverse kinemic (unit : rad)
         function joint = inverse(obj, T6)
             theta = zeros(obj.num, 8); % joints answer
             OofR = logical(false(1, 8)); % out of reach judgment, bool values

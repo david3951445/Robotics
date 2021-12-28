@@ -18,5 +18,5 @@ traj_J = PATH({P1, P2, P3}, [0, T, 2*T], [0, t_acc, 0], rb, 'Joint'); % Joint mo
 Print(traj_C, 'Cartesian')
 Print(traj_J, 'Joint')
 
-rmpath(genpath('function'))
+rmpath(genpath('function')) % remove path
 rmpath(genpath('class'))

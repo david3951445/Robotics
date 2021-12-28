@@ -20,9 +20,7 @@ classdef PATH
     end
     
     methods
-        function obj = PATH(noap, time, tacc, rb, method)
-            %             addpath(genpath('functions'))
-            
+        function obj = PATH(noap, time, tacc, rb, method)          
             %% t, tf, len_t, num_p
             obj.tf = time(length(time));
             obj.t = 0 : obj.dt : obj.tf;
