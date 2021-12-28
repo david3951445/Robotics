@@ -1,4 +1,6 @@
 function Print(traj, method)
+%output results (7 Joint + 7 Cartesian, total 14 fig)
+
 str1 = ["position(m)" "velocity(m/s)" "acceleration(m/s^2)"
     "angle(degree)" "angle velocity(degree/s)" "angle acceleration(degree/s^2)"];
 str2 = ["x" "y" "z" "phi" "theta" "psi"];
@@ -37,17 +39,19 @@ for i = 1 : n
     t = traj.t;
     
     figure
+    ti = ['joint ' num2str(j)];
     for j = 1 : size(Traj, 1)
         subplot(3, 2, j)
         
         tr = rad2deg(Traj(j, :)); % rad -> degree
         
         plot(t, tr);
-        title(['joint ' num2str(j)]);
+        title(ti);
         xlabel('t');
         ylabel(str1(2, i));
         %             ylim([-180 180])
     end
+%      saveas(gcf,[ti '.jpg'])
 end
 
 %% plot 3D path
@@ -69,7 +73,7 @@ hold on
 plot3(p(1, :), p(2, :), p(3, :), 'Color', 'b', 'LineWidth', 3); 
 
 % desired points of path
-for i = 1 : 3 % P1 ~ P3
+for i = 1 : length(traj.point) % P1 ~ Pn
     P = traj.point(i).noap;
     plot3(P(1, 4), P(2, 4), P(3, 4), 'o');
     txt = ['P' num2str(i) '(' num2str(P(1, 4)) ',' num2str(P(2, 4)) ',' num2str(P(3, 4)) ')'];
